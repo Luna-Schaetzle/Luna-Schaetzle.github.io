@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luna's Webpage ヽ(✿ﾟ▽ﾟ)ノ</title>
+    <style>
+      body {
+        font-family: "Courier New", Courier, monospace;
+        background-color: #f4f1de;
+        background-image: url("https://wallpapercave.com/wp/wp2081177.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        color: #1a1a1a;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #d8c3a5;
+        padding: 20px;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 3em;
+        color: #e07a5f;
+      }
+      nav {
+        background-color: #3d405b;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #f4f1de;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.2em;
+      }
+      .content {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        background-color: #f2cc8f;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        background-color: #3d405b;
+        color: #f4f1de;
+        text-align: center;
+        padding: 3px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      /* Retro-Style für den Audio-Player */
+      #audioPlayer {
+        width: 100%;
+        max-width: 300px;
+        height: 30px;
+        margin: 20px auto;
+        background: #333;
+        border: 2px solid #e07a5f;
+        border-radius: 5px;
+        display: block;
+      }
+      #audioPlayer::-webkit-media-controls-panel {
+        background-color: #e07a5f;
+        border-radius: 5px;
+      }
+      #audioPlayer::-webkit-media-controls-play-button,
+      #audioPlayer::-webkit-media-controls-current-time-display,
+      #audioPlayer::-webkit-media-controls-time-remaining-display,
+      #audioPlayer::-webkit-media-controls-timeline,
+      #audioPlayer::-webkit-media-controls-volume-control-container,
+      #audioPlayer::-webkit-media-controls-fullscreen-button {
+        filter: invert(100%);
+      }
+      #audioPlayer:before {
+        content: "❚❚ ▶ ⏪ ⏩"; /* Retro-Symbole */
+        display: block;
+        text-align: center;
+        font-size: 1.5em;
+        color: #f4f1de;
+        padding: 5px 0;
+      }
+      #imageContainer {
+        text-align: center;
+        margin-top: 50px;
+      }
+      #randomImage {
+        max-width: 80%;
+        height: auto;
+      }
+      #changeImageButton {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      /* Customize the button appearance */
+      .btn-vintage {
+        --button-width: 120px; /* adjust button width */
+        --button-height: 30px; /* adjust button height */
+        background-image: linear-gradient(
+          to bottom,
+          #f5deb3,
+          #c3b091
+        ); /* gradient background */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        font-family: "Pixelated", sans-serif; /* use a retro font */
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      /* Add hover effect */
+      .btn-vintage:hover {
+        background-image: linear-gradient(
+          to bottom,
+          #c3b091,
+          #f5deb3
+        ); /* invert gradient */
+        transform: scale(1.01); /* slight scale-up on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>📷 Random image 📷</h1>
+    </header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html">About Me</a>
+      <a href="">Blog</a>
+      <a href="">Linktree</a>
+      <a href="lists.html   ">Lists</a>
+      <a href="random_img.html">Random Image</a>
+    </nav>
+    <div class="content">
+      <p>Here you can find a random image from my collection. Enjoy! 🌟</p>
+
+      <div id="imageContainer">
+        <img id="randomImage" src="" alt="Random Image" />
+        <!--button id="changeImageButton">Next Image</button-->
+        <!-- Import Buttons.css library -->
+        <link rel="stylesheet" href="buttons.css" />
+        <button class="btn-vintage" id="changeImageButton">Explore the next Image</button>
+      </div>
+
+      <script>
+        // Anzahl der Bilder
+        const totalImages = 10; // Ändere dies auf die tatsächliche Anzahl deiner Bilder
+
+        function getRandomImage() {
+          // Generiert eine zufällige Nummer zwischen 1 und totalImages
+          const randomIndex = Math.floor(Math.random() * totalImages) + 1;
+
+          // Formatieren der Nummer mit führenden Nullen (z.B. 0001, 0002, ...)
+          const formattedIndex = randomIndex.toString().padStart(4, "0");
+
+          // Setze die Bildquelle
+          return `ran_img/${formattedIndex}.jpg`;
+        }
+
+        function loadRandomImage() {
+          const imageElement = document.getElementById("randomImage");
+          imageElement.src = getRandomImage();
+        }
+
+        // Bild beim Laden der Seite setzen
+        window.onload = loadRandomImage;
+
+        // Bild beim Klicken des Buttons ändern
+        document.getElementById("changeImageButton").onclick = loadRandomImage;
+      </script>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <footer>
+      <audio id="audioPlayer" controls>
+        Your browser does not support the audio element.
+      </audio>
+      <script>
+        // Array mit Pfaden zu den Musikdateien
+        const tracks = [
+          "music/Mitelalter_1.mp3",
+          "music/Mitelalter_2.mp3",
+          "music/Mitelalter_3.mp3",
+        ];
+
+        let currentTrack = 0;
+        const audioPlayer = document.getElementById("audioPlayer");
+
+        // Funktion, um den nächsten Track abzuspielen
+        function playNextTrack() {
+          currentTrack++;
+          if (currentTrack >= tracks.length) {
+            currentTrack = 0; // Gehe zurück zum ersten Track
+          }
+          audioPlayer.src = tracks[currentTrack];
+          audioPlayer.play();
+        }
+
+        // Initialisierung des Players mit dem ersten Track
+        audioPlayer.src = tracks[currentTrack];
+
+        // Event-Listener, um zum nächsten Track zu wechseln, wenn das aktuelle Lied endet
+        audioPlayer.addEventListener("ended", playNextTrack);
+      </script>
+      <p>
+        For support contact me at: 📫 luna.schaetzle.website@gmail.com &copy;
+        2024 Luna's Webseite. all rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
