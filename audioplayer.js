@@ -3,6 +3,12 @@
     "music/Mitelalter_1.mp3",
     "music/Mitelalter_2.mp3",
     "music/Mitelalter_3.mp3",
+    "music/Eclipsed Heart.mp3",
+    "music/Wishes Among the Stars.mp3",
+    "music/Einheit im Wandel.mp3",
+    "music/Whispers of Summer.mp3",
+    "music/Whispers in the Wetland.mp3",
+    "music/Neon Echoes.mp3",
   ];
 
   let currentTrack = 0;
