@@ -1,8 +1,8 @@
  // Array mit Pfaden zu den Musikdateien
  const tracks = [
-    "music/Mitelalter_1.mp3",
-    "music/Mitelalter_2.mp3",
-    "music/Mitelalter_3.mp3",
+    //"music/Mitelalter_1.mp3",
+    //"music/Mitelalter_2.mp3",
+    //"music/Mitelalter_3.mp3",
     "music/Eclipsed Heart.mp3",
     "music/Wishes Among the Stars.mp3",
     "music/Einheit im Wandel.mp3",
@@ -16,7 +16,8 @@
 
   // Funktion, um den nächsten Track abzuspielen
   function playNextTrack() {
-    currentTrack++;
+    //currentTrack++;
+    currentTrack = Math.floor(Math.random() * tracks.length);
     if (currentTrack >= tracks.length) {
       currentTrack = 0; // Gehe zurück zum ersten Track
     }
