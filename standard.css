@@ -1,79 +1,201 @@
 body {
-    font-family: "Courier New", Courier, monospace;
-    background-color: #f4f1de;
-    background-image: url("https://wallpapercave.com/wp/wp2081177.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    color: #1a1a1a;
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    background-color: #d8c3a5;
-    padding: 3px;
-    margin: auto;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 3em;
-    color: #e07a5f;
-  }
-  nav {
-    background-color: #3d405b;
-    padding: 8px;
-    text-align: center;
-  }
-  nav a {
-    color: #f4f1de;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-  }
-  .content {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #f2cc8f;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  footer {
-    background-color: #3d405b;
-    color: #f4f1de;
-    text-align: center;
-    padding: 3px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  /* Retro-Style für den Audio-Player */
-  #audioPlayer {
-    width: 100%;
-    max-width: 300px;
-    height: 30px;
-    margin: 20px auto;
-    background: #333;
-    border: 2px solid #e07a5f;
-    border-radius: 5px;
-    display: block;
-  }
-  #audioPlayer::-webkit-media-controls-panel {
-    background-color: #e07a5f;
-    border-radius: 5px;
-  }
-  #audioPlayer::-webkit-media-controls-play-button,
-  #audioPlayer::-webkit-media-controls-current-time-display,
-  #audioPlayer::-webkit-media-controls-time-remaining-display,
-  #audioPlayer::-webkit-media-controls-timeline,
-  #audioPlayer::-webkit-media-controls-volume-control-container,
-  #audioPlayer::-webkit-media-controls-fullscreen-button {
-    filter: invert(100%);
-  }
-  #audioPlayer:before {
-    content: "❚❚ ▶ ⏪ ⏩"; /* Retro-Symbole */
-    display: block;
-    text-align: center;
-    font-size: 1.5em;
-    color: #f4f1de;
-    padding: 5px 0;
-  }
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f4f1de;
+  background-image: url("https://wallpapercave.com/wp/wp2081177.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #d8c3a5;
+  padding: 3px;
+  margin: auto;
+  text-align: center;
+}
+header h1 {
+  font-size: 3em;
+  color: #e07a5f;
+}
+nav {
+  background-color: #3d405b;
+  padding: 8px;
+  text-align: center;
+}
+nav a {
+  color: #f4f1de;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1.2em;
+}
+.content {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f2cc8f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+  background-color: #3d405b;
+  color: #f4f1de;
+  text-align: center;
+  padding: 3px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+/* Retro-Style für den Audio-Player */
+#audioPlayer {
+  width: 100%;
+  max-width: 300px;
+  height: 30px;
+  margin: 20px auto;
+  background: #333;
+  border: 2px solid #e07a5f;
+  border-radius: 5px;
+  display: block;
+}
+#audioPlayer::-webkit-media-controls-panel {
+  background-color: #e07a5f;
+  border-radius: 5px;
+}
+#audioPlayer::-webkit-media-controls-play-button,
+#audioPlayer::-webkit-media-controls-current-time-display,
+#audioPlayer::-webkit-media-controls-time-remaining-display,
+#audioPlayer::-webkit-media-controls-timeline,
+#audioPlayer::-webkit-media-controls-volume-control-container,
+#audioPlayer::-webkit-media-controls-fullscreen-button {
+  filter: invert(100%);
+}
+#audioPlayer:before {
+  content: "❚❚ ▶ ⏪ ⏩"; /* Retro-Symbole */
+  display: block;
+  text-align: center;
+  font-size: 1.5em;
+  color: #f4f1de;
+  padding: 5px 0;
+}
+.project {
+  background-color: #e07a5f;
+  color: #f4f1de;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+  font-size: 1.8em;
+  color: #3d405b;
+}
+
+.project p {
+  font-size: 1.2em;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #f4f1de;
+  background-color: #3d405b;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #e07a5f;
+}
+
+.blog-post {
+  background-color: #e07a5f;
+  color: #f4f1de;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h3 {
+  font-size: 1.8em;
+  color: #3d405b;
+}
+
+.blog-post p {
+  color: #1a1a1a;
+  font-size: 1.1em;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #f4f1de;
+  background-color: #3d405b;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #e07a5f;
+}
+
+.post-date {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.blog-post h2 {
+  color: #3d405b;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.blog-post p {
+  line-height: 1.6;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.blog-image {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+blockquote {
+  font-style: italic;
+  background-color: #f4f1de;
+  padding: 15px;
+  margin: 20px 0;
+  border-left: 5px solid #e07a5f;
+  color: #3d405b;
+}
+
+.wip-item h3 {
+  font-size: 1.8em;
+  color: #3d405b;
+}
+
+.progress-bar {
+  transition: width 1s ease-in-out;
+}
+
+.note-box {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+}
+
+footer {
+  margin-top: 50px;
+}
+.note-box h4 {
+  margin-top: 0;
+}
