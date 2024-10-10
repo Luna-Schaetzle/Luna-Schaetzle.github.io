@@ -30,3 +30,12 @@
 
   // Event-Listener, um zum nächsten Track zu wechseln, wenn das aktuelle Lied endet
   audioPlayer.addEventListener("ended", playNextTrack);
+
+  /* You are (not) alone - 01 */
+  document.addEventListener('keypress', function(e) {
+    if (e.key === 'e') { // Aktiviert, wenn jemand "e" drückt
+      const audio = new Audio("music/The Cruel Angel's Thesis (Director's Edit Version).mp3");
+      audio.play();
+    }
+  });
+  
