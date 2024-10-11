@@ -199,3 +199,31 @@ footer {
 .note-box h4 {
   margin-top: 0;
 }
+
+.update-notes {
+  background-color: #e07a5f;
+  color: #f4f1de;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-notes h2 {
+  font-size: 2em;
+  color: #3d405b;
+}
+
+.update-notes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.update-notes li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.update-notes strong {
+  color: #f4f1de;
+}
