@@ -227,3 +227,34 @@ footer {
 .update-notes strong {
   color: #f4f1de;
 }
+
+.music-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.track {
+  background-color: #f2cc8f;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.track h3 {
+  font-size: 1.5em;
+  color: #e07a5f;
+}
+
+audio {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 10px;
+}
+.track p.description {
+  font-size: 1em;
+  color: #3d405b;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

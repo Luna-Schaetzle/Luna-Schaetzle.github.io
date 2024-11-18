@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netzwerktechnik Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        text-align: center;
+      }
+      .quiz-section {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      .question {
+        margin-bottom: 15px;
+      }
+      .question h3 {
+        margin-bottom: 5px;
+      }
+      .options label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      #submit-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #submit-btn:hover {
+        background-color: #357ae8;
+      }
+      #results {
+        background-color: #dff0d8;
+        padding: 20px;
+        border-radius: 5px;
+        display: none;
+      }
+      pre {
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Netzwerktechnik Quiz</h1>
+    <p>
+      Beantworte die folgenden Fragen basierend auf den Mitschriften. Viel
+      Erfolg!
+    </p>
+
+    <form id="quiz-form">
+      <!-- Layer des Internets -->
+      <div class="quiz-section">
+        <h2>Die Layer des Internets</h2>
+
+        <div class="question">
+          <h3>
+            1. Welche Aufgabe hat die Transportschicht (Layer 4) im OSI-Modell?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q1" value="a" /> Daten darstellen und
+              Anwendungen bereitstellen</label
+            >
+            <label
+              ><input type="radio" name="q1" value="b" /> Anwendungen
+              identifizieren, Segmentierung und Flusskontrolle</label
+            >
+            <label
+              ><input type="radio" name="q1" value="c" /> Globale Adressierung
+              und Routing</label
+            >
+            <label
+              ><input type="radio" name="q1" value="d" /> Bits übertragen</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>2. Welches Protokoll gehört zur Anwendungsschicht?</h3>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a" /> TCP</label>
+            <label><input type="radio" name="q2" value="b" /> IP</label>
+            <label><input type="radio" name="q2" value="c" /> HTTP</label>
+            <label><input type="radio" name="q2" value="d" /> Ethernet</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            3. Welche Aussage zur Sicherungsschicht (Layer 2) ist korrekt?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q3" value="a" /> Sie ist für die
+              globale Adressierung zuständig.</label
+            >
+            <label
+              ><input type="radio" name="q3" value="b" /> Sie übernimmt die
+              Datenformatierung.</label
+            >
+            <label
+              ><input type="radio" name="q3" value="c" /> Sie ist verantwortlich
+              für lokale Adressierung und Fehlererkennung.</label
+            >
+            <label
+              ><input type="radio" name="q3" value="d" /> Sie identifiziert
+              Anwendungen anhand der Ports.</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- VLANs -->
+      <div class="quiz-section">
+        <h2>VLANs (Virtual LANs)</h2>
+
+        <div class="question">
+          <h3>4. Was ist ein Trunk Port?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q4" value="a" /> Ein Port, der genau
+              einem VLAN zugeordnet ist.</label
+            >
+            <label
+              ><input type="radio" name="q4" value="b" /> Ein Port, der mehrere
+              VLANs übertragen kann.</label
+            >
+            <label
+              ><input type="radio" name="q4" value="c" /> Ein Port, der nur für
+              Management-Zwecke verwendet wird.</label
+            >
+            <label
+              ><input type="radio" name="q4" value="d" /> Ein Port, der keine
+              VLAN-Tags unterstützt.</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            5. Welches VLAN ist standardmäßig bei Cisco-Geräten konfiguriert?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q5" value="a" /> Daten-VLAN</label>
+            <label><input type="radio" name="q5" value="b" /> Voice-VLAN</label>
+            <label
+              ><input type="radio" name="q5" value="c" /> Default VLAN (VLAN
+              1)</label
+            >
+            <label
+              ><input type="radio" name="q5" value="d" /> Management-VLAN</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>6. Welche der folgenden Aussagen ist ein Nachteil von VLANs?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q6" value="a" /> Erhöhte
+              Sicherheit</label
+            >
+            <label
+              ><input type="radio" name="q6" value="b" /> Bessere
+              Übersichtlichkeit</label
+            >
+            <label
+              ><input type="radio" name="q6" value="c" /> Erhöhter
+              Konfigurationsaufwand</label
+            >
+            <label
+              ><input type="radio" name="q6" value="d" /> Kostenersparnis</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ACL - Access Control List -->
+      <div class="quiz-section">
+        <h2>ACL - Access Control List</h2>
+
+        <div class="question">
+          <h3>
+            7. Was ist der Hauptunterschied zwischen Standard-ACLs und
+            erweiterten ACLs?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q7" value="a" /> Standard-ACLs filtern
+              nach Ziel-IP-Adresse, erweiterte nach Quell-IP-Adresse.</label
+            >
+            <label
+              ><input type="radio" name="q7" value="b" /> Standard-ACLs filtern
+              nur nach Quell-IP-Adresse, erweiterte nach Quell- und
+              Ziel-IP-Adresse, Protokollen und Ports.</label
+            >
+            <label
+              ><input type="radio" name="q7" value="c" /> Standard-ACLs sind
+              sicherer als erweiterte ACLs.</label
+            >
+            <label
+              ><input type="radio" name="q7" value="d" /> Es gibt keinen
+              Unterschied.</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>8. Welche Vorteile bieten ACLs?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q8" value="a" /> Erhöhte Sicherheit und
+              Reduzierung von Netzwerküberlastungen</label
+            >
+            <label
+              ><input type="radio" name="q8" value="b" /> Vereinfachung der
+              Netzwerkkonfiguration</label
+            >
+            <label
+              ><input type="radio" name="q8" value="c" /> Erhöhte
+              Bandbreite</label
+            >
+            <label
+              ><input type="radio" name="q8" value="d" /> Automatische
+              Fehlerbehebung</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>9. Was bewirkt die folgende ACL-Konfiguration?</h3>
+          <pre>
+access-list 1 permit 192.168.1.0 0.0.0.255
+access-list 1 deny any
+interface fastEthernet 0/0
+ ip access-group 1 in
+                </pre
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="q9" value="a" /> Erlaubt allen
+              Datenverkehr von der IP 192.168.1.0/24 und blockiert den
+              Rest.</label
+            >
+            <label
+              ><input type="radio" name="q9" value="b" /> Blockiert den
+              Datenverkehr von der IP 192.168.1.0/24 und erlaubt den
+              Rest.</label
+            >
+            <label
+              ><input type="radio" name="q9" value="c" /> Erlaubt nur
+              HTTP-Verkehr von der IP 192.168.1.0/24.</label
+            >
+            <label
+              ><input type="radio" name="q9" value="d" /> Blockiert alle
+              Datenverkehr.</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- NAT - Network Address Translation -->
+      <div class="quiz-section">
+        <h2>NAT - Network Address Translation</h2>
+
+        <div class="question">
+          <h3>10. Warum wird NAT häufig in Netzwerken eingesetzt?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q10" value="a" /> Um die Anzahl der
+              benötigten Router zu reduzieren.</label
+            >
+            <label
+              ><input type="radio" name="q10" value="b" /> Um IPv6-Adressen zu
+              verwenden.</label
+            >
+            <label
+              ><input type="radio" name="q10" value="c" /> Um die begrenzte
+              Anzahl an IPv4-Adressen zu schonen.</label
+            >
+            <label
+              ><input type="radio" name="q10" value="d" /> Um die Sicherheit
+              durch Verschlüsselung zu erhöhen.</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>11. Was beschreibt NAT mit PAT (Port Address Translation)?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q11" value="a" /> Ein-zu-eins-Zuordnung
+              von IP-Adressen</label
+            >
+            <label
+              ><input type="radio" name="q11" value="b" />
+              Viele-zu-eins-Zuordnung von IP-Adressen unter Verwendung von
+              Ports</label
+            >
+            <label
+              ><input type="radio" name="q11" value="c" /> Übersetzung von
+              IPv6-Adressen zu IPv4</label
+            >
+            <label
+              ><input type="radio" name="q11" value="d" /> Keine Übersetzung,
+              nur Weiterleitung</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>12. Welche der folgenden ist ein Vorteil von NAT?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q12" value="a" />
+              End-zu-Ende-Verbindungen bleiben unverändert.</label
+            >
+            <label
+              ><input type="radio" name="q12" value="b" /> Erhöhte Sicherheit
+              durch Verschlüsselung.</label
+            >
+            <label
+              ><input type="radio" name="q12" value="c" /> Sparen von
+              IPv4-Adressen.</label
+            >
+            <label
+              ><input type="radio" name="q12" value="d" /> Einfachere
+              Konfiguration von Routing-Protokollen.</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- IPv6 -->
+      <div class="quiz-section">
+        <h2>IPv6</h2>
+
+        <div class="question">
+          <h3>13. Wie viele Bits hat eine IPv6-Adresse?</h3>
+          <div class="options">
+            <label><input type="radio" name="q13" value="a" /> 32 Bits</label>
+            <label><input type="radio" name="q13" value="b" /> 64 Bits</label>
+            <label><input type="radio" name="q13" value="c" /> 128 Bits</label>
+            <label><input type="radio" name="q13" value="d" /> 256 Bits</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>14. Welche der folgenden ist eine gültige IPv6-Adresse?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q14" value="a" /> 192.168.1.1</label
+            >
+            <label
+              ><input type="radio" name="q14" value="b" />
+              2001:0ACA:0000:00C3:0000:0000:0000:0100/64</label
+            >
+            <label
+              ><input type="radio" name="q14" value="c" />
+              fe80::1ff:fe23:4567:890a</label
+            >
+            <label
+              ><input type="radio" name="q14" value="d" /> Beide b und c</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>15. Was ist SLAAC in Bezug auf IPv6?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q15" value="a" /> Ein Protokoll zur
+              Verschlüsselung von IPv6-Datenverkehr.</label
+            >
+            <label
+              ><input type="radio" name="q15" value="b" /> Ein Mechanismus zur
+              statischen Zuweisung von IPv6-Adressen.</label
+            >
+            <label
+              ><input type="radio" name="q15" value="c" /> Ein Verfahren zur
+              zustandslosen automatischen Adresskonfiguration.</label
+            >
+            <label
+              ><input type="radio" name="q15" value="d" /> Eine Methode zur
+              Übersetzung von IPv6 zu IPv4.</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- IP-Konfiguration -->
+      <div class="quiz-section">
+        <h2>IP-Konfiguration</h2>
+
+        <div class="question">
+          <h3>
+            16. Welche der folgenden Optionen gehört nicht zur dynamischen
+            IP-Adressvergabe?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q16" value="a" /> DHCP</label>
+            <label><input type="radio" name="q16" value="b" /> SLAAC</label>
+            <label
+              ><input type="radio" name="q16" value="c" /> Manuelle
+              Zuweisung</label
+            >
+            <label
+              ><input type="radio" name="q16" value="d" /> Stateless
+              DHCPv6</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>17. Was ist das Ziel von SLAAC?</h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q17" value="a" /> Den PC manuell eine
+              IP-Adresse zuweisen.</label
+            >
+            <label
+              ><input type="radio" name="q17" value="b" /> Den PC automatisch
+              eine IP-Adresse basierend auf einem Subnetzpräfix vergeben.</label
+            >
+            <label
+              ><input type="radio" name="q17" value="c" /> Den DNS-Server
+              konfigurieren.</label
+            >
+            <label
+              ><input type="radio" name="q17" value="d" /> Den Router
+              konfigurieren.</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            18. Welche der folgenden Informationen wird von einem RA-Paket
+            (Router Advertisement) nicht bereitgestellt?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q18" value="a" /> Subnetzpräfix</label
+            >
+            <label
+              ><input type="radio" name="q18" value="b" /> Default
+              Gateway</label
+            >
+            <label
+              ><input type="radio" name="q18" value="c" /> DNS-Server</label
+            >
+            <label
+              ><input type="radio" name="q18" value="d" /> MAC-Adresse des
+              Hosts</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Zusätzliche Fragen -->
+
+      <!-- Layer des Internets -->
+      <div class="quiz-section">
+        <h2>Die Layer des Internets - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            19. Welche Layer des OSI-Modells sind direkt in der
+            TCP/IP-Modellierung abgebildet?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q19" value="a" /> Anwendungsschicht und
+              Präsentationsschicht</label
+            >
+            <label
+              ><input type="radio" name="q19" value="b" /> Sitzungsschicht und
+              Transportschicht</label
+            >
+            <label
+              ><input type="radio" name="q19" value="c" /> Anwendungsschicht,
+              Transportschicht, Internetschicht und
+              Netzwerkszugriffsschicht</label
+            >
+            <label
+              ><input type="radio" name="q19" value="d" /> Alle sieben Layer des
+              OSI-Modells</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            20. Welches Protokoll arbeitet auf der Netzwerkschicht (Layer 3) des
+            OSI-Modells?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q20" value="a" /> HTTP</label>
+            <label><input type="radio" name="q20" value="b" /> TCP</label>
+            <label><input type="radio" name="q20" value="c" /> IPv4</label>
+            <label><input type="radio" name="q20" value="d" /> Ethernet</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- VLANs -->
+      <div class="quiz-section">
+        <h2>VLANs (Virtual LANs) - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            21. Welches VLAN wird verwendet, um ungetaggte Frames auf einem
+            Trunk-Port zu verarbeiten?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q21" value="a" /> Daten-VLAN</label
+            >
+            <label
+              ><input type="radio" name="q21" value="b" /> Voice-VLAN</label
+            >
+            <label
+              ><input type="radio" name="q21" value="c" /> Native VLAN</label
+            >
+            <label
+              ><input type="radio" name="q21" value="d" />
+              Management-VLAN</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            22. Welcher Vorteil ist kein Vorteil der Verwendung von VLANs?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q22" value="a" /> Erhöhte
+              Sicherheit</label
+            >
+            <label
+              ><input type="radio" name="q22" value="b" /> Bessere
+              Netzwerkleistung durch reduzierte Broadcast-Domänen</label
+            >
+            <label
+              ><input type="radio" name="q22" value="c" /> Erhöhter physischer
+              Netzwerkaufwand</label
+            >
+            <label
+              ><input type="radio" name="q22" value="d" />
+              Kostenersparnis</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ACL - Access Control List -->
+      <div class="quiz-section">
+        <h2>ACL - Access Control List - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            23. Welche der folgenden Aussagen trifft auf eine Standard-ACL zu?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q23" value="a" /> Sie kann nur den
+              Datenverkehr basierend auf der Quell-IP-Adresse filtern.</label
+            >
+            <label
+              ><input type="radio" name="q23" value="b" /> Sie kann den
+              Datenverkehr basierend auf Quell- und Ziel-IP-Adressen
+              filtern.</label
+            >
+            <label
+              ><input type="radio" name="q23" value="c" /> Sie kann den
+              Datenverkehr basierend auf Protokollen und Ports filtern.</label
+            >
+            <label
+              ><input type="radio" name="q23" value="d" /> Sie bietet eine
+              höhere Sicherheit als erweiterte ACLs.</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            24. Welche Aktion wird von der folgenden ACL-Konfiguration
+            durchgeführt?
+          </h3>
+          <pre>
+access-list 100 permit udp any any eq 53
+access-list 100 deny ip any any
+interface fastEthernet 0/0
+ ip access-group 100 in
+        </pre
+          >
+          <div class="options">
+            <label
+              ><input type="radio" name="q24" value="a" /> Erlaubt nur
+              HTTP-Verkehr</label
+            >
+            <label
+              ><input type="radio" name="q24" value="b" /> Erlaubt nur
+              DNS-Verkehr und blockiert alles andere</label
+            >
+            <label
+              ><input type="radio" name="q24" value="c" /> Blockiert DNS-Verkehr
+              und erlaubt alles andere</label
+            >
+            <label
+              ><input type="radio" name="q24" value="d" /> Blockiert allen
+              Verkehr</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- NAT - Network Address Translation -->
+      <div class="quiz-section">
+        <h2>NAT - Network Address Translation - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            25. Welche NAT-Variante ermöglicht mehreren internen Hosts den
+            Zugriff auf das Internet unter Verwendung einer einzigen
+            öffentlichen IP-Adresse?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q25" value="a" /> Static NAT</label
+            >
+            <label
+              ><input type="radio" name="q25" value="b" /> Dynamic NAT</label
+            >
+            <label
+              ><input type="radio" name="q25" value="c" /> PAT (Port Address
+              Translation)</label
+            >
+            <label><input type="radio" name="q25" value="d" /> NAT64</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            26. Welche der folgenden Aussagen beschreibt am besten den Nachteil
+            von NAT?
+          </h3>
+          <div class="options">
+            <label
+              ><input type="radio" name="q26" value="a" /> Erfordert zusätzliche
+              öffentliche IP-Adressen</label
+            >
+            <label
+              ><input type="radio" name="q26" value="b" /> Macht
+              End-to-End-Verbindungen schwieriger</label
+            >
+            <label
+              ><input type="radio" name="q26" value="c" /> Erhöht die Anzahl der
+              benötigten Router</label
+            >
+            <label
+              ><input type="radio" name="q26" value="d" /> Verbessert die
+              Netzwerktransparenz</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- IPv6 -->
+      <div class="quiz-section">
+        <h2>IPv6 - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            27. Welche IPv6-Adresse wird verwendet, um alle Knoten in einem
+            Link-Local-Bereich anzusprechen?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q27" value="a" /> ff02::1</label>
+            <label><input type="radio" name="q27" value="b" /> ff02::2</label>
+            <label><input type="radio" name="q27" value="c" /> fe80::1</label>
+            <label
+              ><input type="radio" name="q27" value="d" /> 2001:db8::1</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            28. Welche Übergangsstrategie für IPv6 erlaubt das gleichzeitige
+            Betreiben von IPv4 und IPv6 in einem Netzwerk?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q28" value="a" /> Tunneling</label>
+            <label
+              ><input type="radio" name="q28" value="b" /> Dual-Stack</label
+            >
+            <label><input type="radio" name="q28" value="c" /> NAT-64</label>
+            <label
+              ><input type="radio" name="q28" value="d" /> Static NAT</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- IP-Konfiguration -->
+      <div class="quiz-section">
+        <h2>IP-Konfiguration - Zusatzfragen</h2>
+
+        <div class="question">
+          <h3>
+            29. Welche Option ermöglicht es einem Host, eine IPv6-Adresse
+            automatisch zu konfigurieren, ohne dass ein DHCPv6-Server
+            erforderlich ist?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q29" value="a" /> DHCPv6</label>
+            <label><input type="radio" name="q29" value="b" /> SLAAC</label>
+            <label><input type="radio" name="q29" value="c" /> Static IP</label>
+            <label><input type="radio" name="q29" value="d" /> APIPA</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <h3>
+            30. Welche der folgenden Optionen ist eine unspezifizierte
+            IPv6-Adresse?
+          </h3>
+          <div class="options">
+            <label><input type="radio" name="q30" value="a" /> ::1</label>
+            <label><input type="radio" name="q30" value="b" /> fe80::/10</label>
+            <label><input type="radio" name="q30" value="c" /> ::</label>
+            <label><input type="radio" name="q30" value="d" /> 2001::/3</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="submit-btn">Quiz auswerten</button>
+    </form>
+
+    <div id="results">
+      <h2>Ergebnisse</h2>
+      <p id="score"></p>
+      <div id="detailed-results"></div>
+    </div>
+
+    <script>
+      const quizForm = document.getElementById("quiz-form");
+      const submitBtn = document.getElementById("submit-btn");
+      const resultsDiv = document.getElementById("results");
+      const scorePara = document.getElementById("score");
+      const detailedResultsDiv = document.getElementById("detailed-results");
+
+      // Richtige Antworten
+      const answers = {
+        q1: "b",
+        q2: "c",
+        q3: "c",
+        q4: "b",
+        q5: "c",
+        q6: "c",
+        q7: "b",
+        q8: "a",
+        q9: "a",
+        q10: "c",
+        q11: "b",
+        q12: "c",
+        q13: "c",
+        q14: "d",
+        q15: "c",
+        q16: "c",
+        q17: "b",
+        q18: "d",
+        q19: "c",
+        q20: "c",
+        q21: "c",
+        q22: "c",
+        q23: "a",
+        q24: "b",
+        q25: "c",
+        q26: "b",
+        q27: "a",
+        q28: "b",
+        q29: "b",
+        q30: "c",
+      };
+
+      submitBtn.addEventListener("click", () => {
+        let score = 0;
+        let total = Object.keys(answers).length;
+        let detailedResults = "";
+
+        for (let q in answers) {
+          // Selektiere die ausgewählte Antwort für die aktuelle Frage
+          const selectedOption = quizForm.querySelector(
+            `input[name="${q}"]:checked`
+          );
+          const userAnswer = selectedOption ? selectedOption.value : null;
+
+          if (userAnswer === answers[q]) {
+            score++;
+            detailedResults += `<p><strong>${q.toUpperCase()}:</strong> Richtig</p>`;
+          } else {
+            const questionNumber = parseInt(q.substring(1));
+            const questionText =
+              quizForm.querySelectorAll(".question h3")[questionNumber - 1]
+                .innerText;
+            const correctLabel = getAnswerText(q, answers[q]);
+            const userLabel = userAnswer
+              ? getAnswerText(q, userAnswer)
+              : "Keine Antwort";
+            detailedResults += `<p><strong>${q.toUpperCase()}:</strong> Falsch<br>
+                                        <strong>Frage:</strong> ${questionText}<br>
+                                        <strong>Deine Antwort:</strong> ${userLabel}<br>
+                                        <strong>Richtige Antwort:</strong> ${correctLabel}</p>`;
+          }
+        }
+
+        scorePara.innerText = `Du hast ${score} von ${total} Fragen richtig beantwortet.`;
+        detailedResultsDiv.innerHTML = detailedResults;
+        resultsDiv.style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+      function getAnswerText(question, value) {
+        if (!value) return "Keine Antwort";
+        const label = quizForm.querySelector(
+          `input[name="${question}"][value="${value}"]`
+        ).parentElement.innerText;
+        return label;
+      }
+    </script>
+  </body>
+</html>
