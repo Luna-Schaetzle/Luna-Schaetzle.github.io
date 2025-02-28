@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>luna@retro-dev:~</title>
+        <!-- Retro Schriftart VT323 von Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+        <!-- Neue elegante Schriftart für Überschriften -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+        <style>
+            /* Basisstil */
+            body {
+              background-color: #1b263b; /* Dunkles Marineblau */
+              /* Optional: Farbverlauf
+                 background: linear-gradient(135deg, #1b263b, #4b5768); */
+              color: #f0e6f6; /* Etwas wärmeres Weiß */
+              font-family: "IBM Plex Mono", monospace;
+              font-size: 18px;
+              max-width: 800px;
+              margin: 2rem auto;
+              padding: 20px;
+              position: relative;
+            }
+          
+            /* Scanline-Effekt */
+            body::after {
+              content: "";
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+              background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0,
+                rgba(0, 0, 0, 0) 2px,
+                rgba(0, 0, 0, 0.08) 2px,
+                rgba(0, 0, 0, 0.08) 3px
+              );
+            }
+          
+            /* Links und Akzentfarben */
+            a {
+              color: #ff69b4; /* Sanftes Rosa */
+              text-decoration: none;
+            }
+            a:hover {
+              color: #ff1493; /* Intensiveres Rosa beim Hover */
+              text-decoration: underline;
+            }
+          
+            /* Abgerundete Rahmen */
+            .ascii-border {
+              border: 2px solid #ff69b4;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 10px 0;
+            }
+          
+            /* Terminal-Stil */
+            .terminal {
+              background-color: #192734;
+              padding: 15px;
+              margin: 10px 0;
+            }
+          
+            @keyframes blink {
+              0% { opacity: 1; }
+              50% { opacity: 0; }
+              100% { opacity: 1; }
+            }
+            .cursor {
+              animation: blink 1s infinite;
+            }
+          
+            /* Seitenanzeige */
+            .page { 
+              display: none; 
+            }
+            .active-page { 
+              display: block; 
+            }
+          
+            /* Terminal-Ausgabe */
+            #terminal-output {
+              height: 200px;
+              overflow-y: auto;
+            }
+          
+            /* Blog-Posts und Terminal-Divs */
+            .blog-post,
+            .terminal > div {
+              cursor: pointer;
+              padding: 5px;
+              margin: 5px 0;
+            }
+            .blog-post:hover,
+            .terminal > div:hover {
+              background-color: #223a54;
+            }
+          
+            /* Button-Stil */
+            button {
+              background-color: #ff69b4;
+              color: #ffffff;
+              border: none;
+              border-radius: 5px;
+              padding: 5px 10px;
+              margin-top: 10px;
+              cursor: pointer;
+            }
+            button:hover {
+              background-color: #ff1493;
+            }
+          
+            /* Eingabefeld */
+            #command-input {
+              font-size: 20px;
+            }
+          
+            /* Scrollbar für Terminal-Ausgabe */
+            #terminal-output::-webkit-scrollbar {
+              width: 12px;
+            }
+            #terminal-output::-webkit-scrollbar-track {
+              background: #1b263b;
+            }
+            #terminal-output::-webkit-scrollbar-thumb {
+              background-color: #ff69b4;
+              border: 3px solid #1b263b;
+              border-radius: 10px;
+            }
+            #terminal-output::-webkit-scrollbar-thumb:hover {
+              background-color: #ff1493;
+            }
+          
+            /* Elegante Überschriften */
+            h1, h2, h3 {
+              font-family: 'Dancing Script', cursive;
+            }
+          </style>
+          
+  </head>
+  <body>
+    <pre>
+ _                       _      __          __  _         _ _       
+| |                     ( )     \ \        / / | |       (_) |         @@@
+| |    _   _ _ __   __ _|/ ___   \ \  /\  / /__| |__  ___ _| |_ ___   @@@@@
+| |   | | | | '_ \ / _` | / __|   \ \/  \/ / _ \ '_ \/ __| | __/ _ \   @@@ 
+| |___| |_| | | | | (_| | \__ \    \  /\  /  __/ |_) \__ \ | ||  __/    | 
+|______\__,_|_| |_|\__,_| |___/     \/  \/ \___|_.__/|___/_|\__\___|   \|/
+</pre
+    >
+
+    <div class="ascii-border">
+      |-[ NAVIGATION ]-----| | [<a onclick="showPage('home')">HOME</a>] | [<a
+        onclick="showPage('projects')"
+        >PROJECTS</a
+      >] | [<a onclick="showPage('about')">ABOUT</a>] | [<a
+        onclick="showPage('contact')"
+        >CONTACT</a
+      >] |
+    </div>
+
+    <!-- Seiten -->
+
+    <!-- Home Section -->
+    <div id="home" class="page active-page">
+      <div class="ascii-border">
+        |-[ SYSTEM INFO ]--------------------------------------|
+        <div class="terminal">
+          <pre>
+    user@host: Luna-Schaetzle@https://luna-schaetzle.xyz
+    --------------------------------------------------------
+    os:        Ubuntu 22.04 LTS / Fedora 38 / Windows 11
+    ide:       Visual Studio Code
+    languages: Python/Java/C#/C/PHP/JS
+    hobbies:   Coding, Reading, Board Games 
+    --------------------------------------------------------
+        </pre>
+        <pre>
+    |-[ About This Site ]-----------------------------------
+    | This is my personal website, built with HTML, CSS,
+    | and JavaScript. It features a retro terminal design
+    | and showcases my projects, skills, and contact info.
+    | Feel free to explore and learn more about me!
+    | To get started, type 'help' in the terminal below.
+    |-------------------------------------------------------
+        </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="page">
+      <div class="ascii-border">
+        |-[ ABOUT ME ]-----------------------------------------|
+        <div class="terminal">
+        <pre>
+|-[ About ]-------------------------------------------
+| Hi there! I'm Luna Schätzle 20 Years old.
+| I love building things with code and exploring new
+| technologies and ideas. 
+| I am currently studying Industrial Engineering & Business
+| Informatics at HTL Anichstraße in Innsbruck, Austria.
+| In my free time, I enjoy reading, playing board games,
+| and working on personal projects.
+| Here are a few details about me:
+|------------------------------------------------------           
+        </pre>
+          <pre>
+|-[ Bio ]-------------------------------------------
+| * HTL Anichstraße Industrial Engineering & Business
+|   Informatics (2019-2025)
+| * AI & Automation Developer
+| * Full-Stack Engineer (Vue.js/Flask/ASP.NET)
+| * Open Source Contributor
+|---------------------------------------------------
+        </pre
+          >
+          <pre>
+|-[ Skills ]----------------------------------------
+| Python     ********************  [90%]
+| Java       ******************    [85%]
+| C#         ***************       [75%]
+| Vue.js     **************        [70%]
+| Linux      **********            [60%]
+|---------------------------------------------------
+        </pre
+          >
+          <pre>
+|-[ Experience ]------------------------------------
+| 2024: Sandoz GmbH - QA Automation & Data Migration
+| 2023: Cineplexx Wörgl - Inventory Systems
+| 2025: Niclas Sachse Büroservice - Financial Systems
+|---------------------------------------------------
+        </pre
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="projects" class="page">
+        <div class="ascii-border">
+          |-[ ACTIVE PROJECTS ]-------------------------------------|
+          <div class="terminal">
+            <div onclick="showProject('my-website')">
+              > My Website [##########] 100%
+            </div>
+            <div onclick="showProject('Learning-C')">
+              > Learning C [#---------] 20%
+            </div>
+            <div onclick="showProject('Home-Assistant')">
+              > Home Assistant [#------] 30% 
+            </div>
+          </div>
+          |---------------------------------------------------------|
+        </div>
+      </div>
+  
+      <!-- Project Detailseiten -->
+    <div id="project-my-website" class="page">
+        <div class="ascii-border">
+            |-[ My Website ]------------------------------------------|
+            <div class="terminal">
+                <pre>
+|-[ Project Details ]-------------------------------
+|  A personal website showcasing my projects,
+|  skills, and contact information. Built with:
+|  - HTML/CSS
+|  - JavaScript
+|  - Flask
+|----------------------------------------------------
+                </pre>
+                <button onclick="showPage('projects')">Back to Projects</button>
+            </div>
+            |---------------------------------------------------------|
+        </div>
+    </div>
+
+    <div id="project-Learning-C" class="page">
+        <div class="ascii-border">
+            |-[ Learning C ]------------------------------------------|
+            <div class="terminal">
+                <pre>
+|-[ Project Details ]-------------------------------
+|  A series of exercises and projects to learn
+|  the C programming language, including:
+|  - Basic syntax and data structures
+|  - Algorithms and problem-solving
+|  - System programming
+|----------------------------------------------------
+                </pre>
+                <button onclick="showPage('projects')">Back to Projects</button>
+            </div>
+            |---------------------------------------------------------|
+        </div>
+    </div>
+
+    <div id="project-Home-Assistant" class="page">
+        <div class="ascii-border">
+            |-[ Home Assistant ]--------------------------------------|
+            <div class="terminal">
+                <pre>
+|-[ Project Details ]-------------------------------
+|  A smart home automation system using Home
+|  Assistant, featuring:
+|  - Device integration
+|  - Automation scripts
+|  - Custom dashboards
+|----------------------------------------------------
+                </pre>
+                <button onclick="showPage('projects')">Back to Projects</button>
+            </div>
+            |---------------------------------------------------------|
+        </div>
+    </div>
+
+
+
+    <!--</div> Contact Section -->
+    <div id="contact" class="page">
+      <div class="ascii-border">
+        |-[ CONTACT INFO ]----------------------------------------|
+        <div class="terminal">
+          <pre>
+|-[ Communication Channels ]----------------------
+| Email:    luna.schaetzle@gmail.com
+| GitHub:   github.com/Luna-Schaetzle
+| LinkedIn: linkedin.com/in/luna-schätzle-762a09303
+| Location: Kufstein, Austria
+|--------------------------------------------------
+        </pre
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Live Terminal Section -->
+    <div class="ascii-border">
+      |-[ LIVE TERMINAL ]---------------------------------------|
+      <div class="terminal" id="terminal">
+        <div id="terminal-output"></div>
+        <div id="terminal-input">
+          <span>luna@retro-dev:~$ </span>
+          <input
+            type="text"
+            id="command-input"
+            style="
+              background: transparent;
+              border: none;
+              color: #ffffff;
+              font-family: 'VT323', monospace;
+              width: 70%;
+              outline: none;
+            "
+          />
+        </div>
+      </div>
+      |---------------------------------------------------------|
+    </div>
+    <div style="text-align: center; margin-top: 20px">
+      <pre>
+     [<a href="https://github.com/Luna-Schaetzle/">GIT</a>]  [<a href="https://social.vivaldi.net/@LunaSchaetzle">MASTODON</a>]  [<a href="https://www.linkedin.com/in/luna-schätzle-762a09303">LINKEDIN</a>] [<a href="https://luna-schaetzle.xyz/index-cosy.html">my cozy Website (comming soon)</a>]
+        </pre>
+      <span>Copyright &copy; and created by Luna Schätzle</span></br>
+    <span>Last login: <span id="last-login"></span> from <script type="text/javascript" language="javascript" 
+      src="http://www.nwlab.net/cgi-bin/show-ip-js"></script></span>
+
+    </div>
+    <script>
+    document.getElementById('last-login').textContent = new Date().toLocaleString();
+    </script>
+    <script>
+      const terminal = {
+        init() {
+          this.history = [];
+          this.historyPos = 0;
+          this.commands = {
+            help: () =>
+              this.print(
+                `<pre style="color: #FFB300">
+|-[ HELP ]--------------------------------------------------|
+| Available Commands:                                       |
+|   help       - Shows this help                            |
+|   clear      - Clears the terminal                        |
+|   about      - Shows information about me                 |
+|   projects   - Shows current projects                     |
+|   info       - Shows general information                  |
+|   contact    - Shows contact information                  |
+|   ls         - Lists directories                          |
+|   cat        - Shows an ASCII cat                         |
+|   joke       - Tells a joke                               |
+|   fortune    - Shows a fortune quote                      |
+|   echo       - Echoes the entered text                    |
+|   calc       - Performs a calculation                     |
+|   secret     - Shows a secret Easter egg                  |
+|   matrix     - Starts the Matrix animation                |
+|   resume     - Opens my resume                            |
+|   skills     - Shows my skills                            |
+|   thesis     - Shows information about my thesis          |
+|   ai         - Shows active AI projects                   |
+|-----------------------------------------------------------|
+                </pre>`,
+                "#FFB300"
+              ),
+            clear: () => this.clear(),
+            home: () => showPage("home"),
+            info: () =>
+              this.print(
+                "Luna :: Linux Enthusiast // Python Developer // AI Researcher // Full-Stack Engineer"
+              ),
+            projects: () => showPage("projects"),
+            about: () => showPage("about"),
+            contact: () => showPage("contact"),
+            hardware: () => showPage("hardware"),
+            specs: () =>
+              this.print(
+                "System: Ryzen 9 5950X | 64GB RAM | Ubuntu",
+                "#FFB300"
+              ),
+            mtr: () =>
+              this.print(
+                "MTR tracing...\nHop 1: 192.168.1.1    1ms\nHop 2: 10.0.0.1     10ms",
+                "#FFB300"
+              ),
+            sudo: () => this.print("Nice try... keine Adminrechte!", "#FF6F00"),
+            ls: () =>
+              this.print(
+                "Documents  Downloads  Pictures  Music  secret",
+                "#FFB300"
+              ),
+            cat: () => this.print("<pre>  /\\_/\\  \n ( o.o ) \n  > ^ <</pre>", "#FFB300"),
+            resume: () => window.open("CV-Luna-Schaetzle.pdf"),
+            skills: () =>
+              this.print(
+                "Python/Java/C# Expert | Vue.js/Flask | AI/ML | Linux SysAdmin"
+              ),
+            thesis: () =>
+              this.print(
+                "SAIPiA: Self-sufficient AI Assistant combining LLMs with Raspberry Pi"
+              ),
+            ai: () =>
+              this.print(
+                "Active AI Projects:\n- Music Generation\n- Story Writing\n- Image Creation"
+              ),
+            joke: () => {
+              const jokes = [
+                "Warum können Geister nicht lügen? Man sieht durch sie durch!",
+                "Was ist ein Bumerang, der nicht zurückkommt? Ein Stock!",
+              ];
+              this.print(
+                jokes[Math.floor(Math.random() * jokes.length)],
+                "#FFB300"
+              );
+            },
+            fortune: () => {
+              const fortunes = [
+                "Du wirst bald ein Abenteuer erleben!",
+                "Ein unerwartetes Ereignis wird dein Leben erhellen!",
+              ];
+              this.print(
+                fortunes[Math.floor(Math.random() * fortunes.length)],
+                "#FFB300"
+              );
+            },
+            secret: () =>
+              this.print(
+                "Herzlichen Glückwunsch! Du hast das Easter Egg gefunden!",
+                "#FFB300"
+              ),
+            echo: (args) => this.print(args, "#FFB300"),
+            calc: (args) => {
+              try {
+                const result = Function(`'use strict'; return (${args})`)();
+                this.print(`${args} = ${result}`, "#FFB300");
+              } catch (e) {
+                this.print("Ungültiger Ausdruck.", "#FF6F00");
+              }
+            },
+            matrix: () => this.startMatrix(),
+                  
+          };
+          document
+            .getElementById("command-input")
+            .addEventListener("keypress", (e) => {
+              if (e.key === "Enter") {
+                this.processCommand(e.target.value);
+                e.target.value = "";
+              }
+            });
+          this.animateWelcomeMessage("Willkommen im Terminal! Tippe 'help' für Hilfe.");
+        },
+        
+        processCommand(input) {
+          this.history.push(input);
+          this.historyPos = this.history.length;
+          this.print(`> ${input}`, "#FFFFFF");
+          const args = input.split(" ");
+          const command = args.shift();
+          const params = args.join(" ");
+          if (this.commands[command]) {
+            this.commands[command](params);
+          } else {
+            this.print(`Command not found: ${command}`, "#FF6F00");
+          }
+        },
+        print(text, color = "#FFFFFF") {
+          const output = document.getElementById("terminal-output");
+          output.innerHTML += `<div style="color:${color}">${text}</div>`;
+          output.scrollTop = output.scrollHeight;
+        },
+        clear() {
+          document.getElementById("terminal-output").innerHTML = "";
+        },
+        startMatrix() {
+          const output = document.getElementById("terminal-output");
+          output.innerHTML = "";
+          let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          let matrix = setInterval(() => {
+            let line = "";
+            for (let i = 0; i < 50; i++) {
+              line += chars[Math.floor(Math.random() * chars.length)] + " ";
+            }
+            output.innerHTML += `<div style="color:green">${line}</div>`;
+            output.scrollTop = output.scrollHeight;
+          }, 100);
+          setTimeout(() => clearInterval(matrix), 5000);
+        },
+        startSnake() {
+          this.print(
+            "Starte Snake... (Mit WASD bewegen, ESC zum Beenden)",
+            "#FFB300"
+          );
+          // Snake-Spiel kann hier als Canvas oder ASCII-Version integriert werden
+        },
+        animateWelcomeMessage(message) {
+          const output = document.getElementById("terminal-output");
+          let index = 0;
+          const interval = setInterval(() => {
+            if (index < message.length) {
+              output.innerHTML += `<span style="color:#FFB300">${message[index]}</span>`;
+              index++;
+              output.scrollTop = output.scrollHeight;
+            } else {
+              clearInterval(interval);
+              output.innerHTML += "<br/>";
+            }
+          }, 30);
+        },
+      };
+      terminal.init();
+
+      // Navigation und Seitenwechsel bleiben unverändert
+      function showPage(pageId) {
+        document.querySelectorAll(".page").forEach((page) => {
+          page.classList.remove("active-page");
+        });
+        document.getElementById(pageId).classList.add("active-page");
+      }
+
+      function showPost(postId) {
+        document.getElementById(`blog-${postId}`).classList.add("active-page");
+        document.getElementById("blog").classList.remove("active-page");
+      }
+
+      function showProject(projectId) {
+        document
+          .getElementById(`project-${projectId}`)
+          .classList.add("active-page");
+        document.getElementById("projects").classList.remove("active-page");
+      }
+    </script>
+  </body>
+</html>
