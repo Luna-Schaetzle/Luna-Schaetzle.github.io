@@ -143,6 +143,12 @@
           
   </head>
   <body>
+    <script>
+      // Weiterleitung auf mobile.html, wenn das Gerät ein Mobilgerät ist
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        window.location.href = "mobile.html";  // Stelle sicher, dass "mobile.html" existiert und mobil optimiert ist
+      }
+      </script>
     <pre>
  _                       _      __          __  _         _ _       
 | |                     ( )     \ \        / / | |       (_) |         @@@
@@ -174,7 +180,7 @@
     user@host: Luna-Schaetzle@https://luna-schaetzle.xyz
     --------------------------------------------------------
     os:        Ubuntu 22.04 LTS / Fedora 38 / Windows 11
-    ide:       Visual Studio Code
+    ide:       Visual Studio Code / IntelliJ IDEA / PyCharm
     languages: Python/Java/C#/C/PHP/JS
     hobbies:   Coding, Reading, Board Games 
     --------------------------------------------------------
@@ -361,8 +367,9 @@
     </div>
     <div style="text-align: center; margin-top: 20px">
       <pre>
-     [<a href="https://github.com/Luna-Schaetzle/">GIT</a>]  [<a href="https://social.vivaldi.net/@LunaSchaetzle">MASTODON</a>]  [<a href="https://www.linkedin.com/in/luna-schätzle-762a09303">LINKEDIN</a>] [<a href="https://luna-schaetzle.xyz/index-cosy.html">my cozy Website (comming soon)</a>]
-        </pre>
+     [<a href="https://github.com/Luna-Schaetzle/">GIT</a>]  [<a href="https://social.vivaldi.net/@LunaSchaetzle">MASTODON</a>]  [<a href="https://www.linkedin.com/in/luna-schätzle-762a09303">LINKEDIN</a>] [<a href="https://luna-schaetzle.xyz/mobile.html">Mobile Version</a>]  [<a href="https://luna-schaetzle.xyz/index.html">Desktop Version</a>] 
+     <!--[<a href="https://luna-schaetzle.xyz/index-cosy.html">my cozy Website (comming soon)</a>] -->
+    </pre>
       <span>Copyright &copy; and created by Luna Schätzle</span></br>
     <span>Last login: <span id="last-login"></span> from <script type="text/javascript" language="javascript" 
       src="http://www.nwlab.net/cgi-bin/show-ip-js"></script></span>

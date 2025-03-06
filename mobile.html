@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Luna@retro-dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #1b263b;
+        color: #f0e6f6;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 18px;
+        margin: 0;
+        padding: 15px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .section {
+        background: rgba(255, 105, 180, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+    h1, h2 {
+      font-family: 'Raleway', sans-serif;
+      color: #ff69b4;
+      margin-top: 0;
+    }
+
+      nav {
+        text-align: center;
+        padding: 15px 0;
+      }
+
+      nav a {
+        display: block;
+        padding: 12px;
+        margin: 8px 0;
+        background: rgba(255, 105, 180, 0.2);
+        border-radius: 5px;
+        color: #ff69b4;
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-size: 16px;
+      }
+
+      .progress-bar {
+        background: #2a3a50;
+        border-radius: 3px;
+        height: 24px;
+        margin: 10px 0;
+      }
+
+      .progress-fill {
+        background: #eb1781;
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.3s ease;
+      }
+
+      .skill {
+        margin: 15px 0;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px 0 20px;
+        font-size: 14px;
+      }
+
+      .social-links {
+        margin: 20px 0;
+      }
+
+      .social-links a {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 5px;
+        background: rgba(255, 105, 180, 0.2);
+        border-radius: 5px;
+        color: #ff69b4;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+        <h1>Willkommen auf meiner Website</h1>
+    </header>
+    <div class="container">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Über mich</a>
+        <a href="#projects">Projekte</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+
+      <section id="home" class="section">
+        <h2>Luna Schätzle</h2>
+        <p>Studentin | Programmiererin | Gamerin</p>
+        <pre>
+OS:        Ubuntu 22.04 / Fedora 38 / Windows 11
+IDE:       Visual Studio Code / IntelliJ IDEA / PyCharm
+Sprachen:  Python/Java/C#/C/PHP/JS
+Hobbies:   Coding, Lesen, Brettspiele, Gesellschaftsspiele
+</pre>
+        
+        <h2>Willkommen!</h2>
+        <p>Dies ist meine persönliche Website im Retro-Stil. Hier findest du Informationen über meine Projekte, Fähigkeiten und Kontaktmöglichkeiten.</p>
+        <p>INFO: Diese Website ist für mobile Geräte optimiert. Für die Desktop-Version besuche bitte <a href="index.html" style="color: #ffffff;">diese Seite</a>.
+        </p>
+      </section>
+
+      <section id="about" class="section">
+        <h2>Über mich</h2>
+        <p>Luna Schätzle, 20 Jahre<br>
+        Studentin Industrial Engineering & Business Informatics (HTL Anichstraße)</p>
+
+        <div class="skill">
+          <h3>Fähigkeiten</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 90%">Python 90%</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 85%">Java 85%</div></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 75%">C# 75%</div></div>
+        </div>
+
+        <h3>Berufserfahrung</h3>
+        <ul>
+          <li>2024: Sandoz GmbH - QA Automation</li>
+          <li>2023: Cineplexx Wörgl - Inventarsysteme</li>
+          <li>2025: Niclas Sachse Büroservice - Finanzsysteme</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Aktive Projekte</h2>
+        <div class="project">
+          <h3>My Website</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+          <p>Persönliche Website mit HTML/CSS/JavaScript</p>
+        </div>
+
+        <div class="project">
+          <h3>Learning C</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+          <p>Grundlagen der C-Programmierung</p>
+        </div>
+
+        <div class="project">
+          <h3>Home Assistant</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 30%"></div></div>
+          <p>Smart Home Automatisierung</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Kontakt</h2>
+        <p>📧 luna.schaetzle@gmail.com</p>
+        <p>📍 Kufstein, Österreich</p>
+        
+        <div class="social-links">
+          <a href="https://github.com/Luna-Schaetzle">GitHub</a>
+          <a href="https://social.vivaldi.net/@LunaSchaetzle">Mastodon</a>
+          <a href="https://linkedin.com/in/luna-schätzle-762a09303">LinkedIn</a>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; Luna Schätzle 2024</p>
+      <p>Letzter Login: <span id="last-login"></span></p>
+    </footer>
+
+    <script>
+      document.getElementById('last-login').textContent = new Date().toLocaleString();
+    </script>
+  </body>
+</html>
