@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ASCII Map Viewer — Magareth Edition</title>
+<style>
+    body {
+        background: #111;
+        color: white;
+        font-family: monospace;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 { font-size: 20px; margin-bottom: 10px; }
+    .controls {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+    .controls label, .controls button, .controls select, .controls input[type=number] {
+        background: #222;
+        color: white;
+        padding: 5px 10px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .ascii-output {
+        background: black;
+        white-space: pre;
+        overflow: auto;
+        padding: 10px;
+        border: 1px solid #444;
+        max-height: 70vh;
+    }
+    img.preview {
+        max-width: 200px;
+        max-height: 150px;
+        border: 1px solid #444;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>ASCII Map Viewer — Magareth Edition</h1>
+
+<div class="controls">
+    <input type="file" id="fileInput" accept="image/*">
+    <select id="charset">
+        <option value="@%#*+=-:. ">Standard</option>
+        <option value="█▓▒░ ">Block</option>
+        <option value="@#W$9876543210?!abc;:+=-,._ `">Detailed</option>
+        <option value="@#%*+=-:. ">Tiny</option>
+    </select>
+    <label>Detail: <input type="number" id="scale" value="8" min="2" max="24"></label>
+    <label>Zoom: <input type="number" id="fontsize" value="8" min="6" max="28"></label>
+    <label>Max Breite: <input type="number" id="maxwidth" value="200" min="20" max="800"></label>
+    <label><input type="checkbox" id="invert"> invertieren</label>
+    <button id="convertBtn">Convert</button>
+    <button id="downloadBtn">Download TXT</button>
+</div>
+
+<div id="previewContainer">
+    <img id="preview" class="preview" alt="preview">
+</div>
+
+<div class="ascii-output" id="asciiOutput">ASCII-Ausgabe erscheint hier...</div>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const asciiOutput = document.getElementById('asciiOutput');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const preview = document.getElementById('preview');
+
+let imageSrc = null;
+
+fileInput.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+        imageSrc = ev.target.result;
+        preview.src = imageSrc;
+    };
+    reader.readAsDataURL(file);
+});
+
+document.getElementById('convertBtn').addEventListener('click', () => {
+    if (!imageSrc) return alert("Bitte zuerst ein Bild hochladen!");
+    generateAscii();
+});
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const blob = new Blob([asciiOutput.textContent], {type: "text/plain;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ascii-map.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+});
+
+function generateAscii() {
+    const scale = parseInt(document.getElementById('scale').value);
+    const fontSize = parseInt(document.getElementById('fontsize').value);
+    const charset = document.getElementById('charset').value;
+    const invert = document.getElementById('invert').checked;
+    const maxwidth = parseInt(document.getElementById('maxwidth').value);
+
+    const img = new Image();
+    img.onload = () => {
+        const desiredCharWidth = Math.max(10, Math.min(maxwidth, Math.floor(img.width / scale)));
+        const aspectCorrection = 0.5; // Monospace-Höhenkorrektur
+        const charHeight = Math.floor((img.height / (img.width / desiredCharWidth)) * aspectCorrection);
+
+        canvas.width = desiredCharWidth;
+        canvas.height = charHeight;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        let output = "";
+        for (let y = 0; y < canvas.height; y++) {
+            for (let x = 0; x < canvas.width; x++) {
+                const i = (y * canvas.width + x) * 4;
+                let r = data[i], g = data[i+1], b = data[i+2];
+                let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                if (invert) lum = 255 - lum;
+                const idx = Math.floor((lum / 255) * (charset.length - 1));
+                output += charset[idx] || " ";
+            }
+            output += "\n";
+        }
+        asciiOutput.style.fontSize = fontSize + "px";
+        asciiOutput.textContent = output;
+    };
+    img.src = imageSrc;
+}
+</script>
+
+</body>
+</html>
