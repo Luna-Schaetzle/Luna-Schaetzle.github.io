@@ -1,65 +1,212 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipment Vexa Nightwing</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1 { text-align: center; }
-    details { margin-bottom: 10px; }
-    ul { list-style: none; padding-left: 20px; }
-    li { margin: 4px 0; }
-    #search { width: 100%; padding: 8px; margin-bottom: 20px; font-size: 1rem; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0 auto;
+      max-width: 700px;
+      padding: 2rem;
+      background-color: #f7f3f0;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #5a2d82;
+    }
+    details {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    summary {
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      color: #4b116f;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0e7ff;
+      margin: 4px 0;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    li:hover {
+      background: #e3d2fd;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #aa0000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .add-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .add-form input {
+      flex: 1;
+      padding: 0.4rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .add-form button {
+      padding: 0.4rem 0.8rem;
+      background: #6a36a6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-form button:hover {
+      background: #4b116f;
+    }
+    #search {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
   <h1>Equipment Vexa Nightwing</h1>
+
   <input type="text" id="search" placeholder="Suche Ausrüstung..." />
 
   <details open>
     <summary>Umhängetasche</summary>
     <ul id="pouch">
-      <li>2 Magikristalle</li>
-      <li>Essensrationen (29 St.)</li>
-      <li>4 Healing Potions</li>
-      <li>Medium Potions</li>
-      <li>Kleine Potions</li>
+      <li><label><input type="checkbox"> 2 Magikristalle</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Essensrationen (29 St.)</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> 4 Healing Potions</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Medium Potions</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Kleine Potions</label> <button class="remove-btn">✖</button></li>
     </ul>
+    <form class="add-form" data-target="pouch">
+      <input type="text" placeholder="Neues Item hinzufügen..." required />
+      <button type="submit">➕</button>
+    </form>
   </details>
 
   <details open>
     <summary>Rucksack</summary>
     <ul id="backpack">
-      <li>Badeanzug</li>
-      <li>Brechstange</li>
-      <li>Hammer</li>
-      <li>Eisenpfähle (10)</li>
-      <li>Seil (50 ft.)</li>
-      <li>Zunderbox</li>
-      <li>Fackeln (10)</li>
-      <li>Tinder Box</li>
-      <li>Blätter</li>
-      <li>Brief</li>
-      <li>Bücher über Ratten</li>
-      <li>Wasserschlauch [mit Orkblut]</li>
-      <li>Sack Kartoffeln</li>
-      <li>Käse Rad</li>
+      <li><label><input type="checkbox"> Badeanzug</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Brechstange</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Hammer</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Eisenpfähle (10)</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Seil (50 ft.)</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Zunderbox</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Fackeln (10)</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Tinder Box</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Blätter</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Brief</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Bücher über Ratten</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Wasserschlauch [mit Orkblut]</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Sack Kartoffeln</label> <button class="remove-btn">✖</button></li>
+      <li><label><input type="checkbox"> Käse Rad</label> <button class="remove-btn">✖</button></li>
     </ul>
+    <form class="add-form" data-target="backpack">
+      <input type="text" placeholder="Neues Item hinzufügen..." required />
+      <button type="submit">➕</button>
+    </form>
   </details>
 
   <script>
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', () => {
+    const searchInput = document.getElementById("search");
+
+    // Checkboxen merken mit localStorage
+    function saveState() {
+      const state = {};
+      document.querySelectorAll("ul").forEach(ul => {
+        ul.querySelectorAll("li").forEach((li, index) => {
+          const checkbox = li.querySelector("input[type='checkbox']");
+          if (checkbox) {
+            state[li.textContent.trim()] = checkbox.checked;
+          }
+        });
+      });
+      localStorage.setItem("vexaInventory", JSON.stringify(state));
+    }
+
+    function loadState() {
+      const state = JSON.parse(localStorage.getItem("vexaInventory") || "{}");
+      document.querySelectorAll("ul").forEach(ul => {
+        ul.querySelectorAll("li").forEach(li => {
+          const checkbox = li.querySelector("input[type='checkbox']");
+          if (checkbox && state.hasOwnProperty(li.textContent.trim())) {
+            checkbox.checked = state[li.textContent.trim()];
+          }
+        });
+      });
+    }
+
+    // Suche
+    searchInput.addEventListener("input", () => {
       const filter = searchInput.value.toLowerCase();
-      document.querySelectorAll('ul').forEach(list => {
-        list.querySelectorAll('li').forEach(item => {
+      document.querySelectorAll("ul").forEach(list => {
+        list.querySelectorAll("li").forEach(item => {
           const text = item.textContent.toLowerCase();
-          item.style.display = text.includes(filter) ? '' : 'none';
+          item.style.display = text.includes(filter) ? "" : "none";
         });
       });
     });
+
+    // Checkboxen speichern
+    document.addEventListener("change", e => {
+      if (e.target.matches("input[type='checkbox']")) {
+        saveState();
+      }
+    });
+
+    // Neues Item hinzufügen
+    document.querySelectorAll(".add-form").forEach(form => {
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const input = form.querySelector("input");
+        const listId = form.getAttribute("data-target");
+        const ul = document.getElementById(listId);
+
+        const li = document.createElement("li");
+        li.innerHTML = `<label><input type="checkbox"> ${input.value}</label> <button class="remove-btn">✖</button>`;
+        ul.appendChild(li);
+        input.value = "";
+        saveState();
+      });
+    });
+
+    // Items löschen
+    document.addEventListener("click", e => {
+      if (e.target.classList.contains("remove-btn")) {
+        e.target.closest("li").remove();
+        saveState();
+      }
+    });
+
+    loadState();
   </script>
 </body>
 </html>
-
